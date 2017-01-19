@@ -10,7 +10,7 @@ public class StringCalculator {
 
     private static final String START_CUSTOM_DELIMITERS = "//";
 
-    private static final String END_CUSTOM_DELIMITERS = "\n";
+    private static final String END_CUSTOM_DELIMITERS = "\\n";
 
     private static final String START_CUSTOM_DELIMITER = "[";
 
@@ -24,7 +24,7 @@ public class StringCalculator {
 
         // Default values
         delimiters.add(",");
-        delimiters.add("\n");
+        delimiters.add("\\n");
     }
 
     public int add(String numbers) {
@@ -135,7 +135,10 @@ public class StringCalculator {
     }
 
     private String addCustomDelimiter(String numbers, String endCustomDelimiter) {
-        String[] splitDelimiter = numbers.split(endCustomDelimiter, 2);
+        // Escape special characters
+        String quote = Pattern.quote(endCustomDelimiter);
+
+        String[] splitDelimiter = numbers.split(quote, 2);
 
         String newDelimiter = splitDelimiter[0].substring(0, splitDelimiter[0].length());
 
