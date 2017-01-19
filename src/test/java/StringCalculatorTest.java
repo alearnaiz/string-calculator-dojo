@@ -69,12 +69,12 @@ public class StringCalculatorTest {
 
     @Test
     public void oneAndTwoWithSpecificDelimiterShouldBeThree() {
-        assertSum(3, "1\\n2");
+        assertSum(3, "1\n2");
     }
 
     @Test
     public void oneAndTwoAndThreeWithTwoDifferentDelimitersShouldBeSix() {
-        assertSum(6, "1\\n2,3");
+        assertSum(6, "1\n2,3");
     }
 
     @Test(expected = NegativeNumbersException.class)
@@ -104,12 +104,12 @@ public class StringCalculatorTest {
 
     @Test
     public void addNewDelimiterShouldSum() {
-        assertSum(3, "//;\\n1;2");
+        assertSum(3, "//;\n1;2");
     }
 
     @Test
     public void addNewDelimiterAndUseItWithOthersDelimitersShouldSum() {
-        assertSum(11, "//b8ubu\\n1b8ubu2\\n2,6");
+        assertSum(11, "//b8ubu\n1b8ubu2\n2,6");
     }
 
     @Test
@@ -119,17 +119,17 @@ public class StringCalculatorTest {
 
     @Test
     public void addOneDelimiterWIthBracketDelimiterFormatShouldSum() {
-        assertSum(15, "//[***]\\n1***2***12");
+        assertSum(15, "//[***]\n1***2***12");
     }
 
     @Test
     public void addTwoDelimitersWithBracketDelimiterFormatShouldSum() {
-        assertSum(6, "//[*)][%]\\n1*)2%3");
+        assertSum(6, "//[*)][%]\n1*)2%3");
     }
 
     @Test
     public void badFormatShouldBeZero() {
-        assertSum(0, "//[*)][%]ds\\n1*)2%3");
+        assertSum(0, "//[*)][%]ds\n1*)2%3");
     }
 
     private void assertSum(int expected, String numbers) {
